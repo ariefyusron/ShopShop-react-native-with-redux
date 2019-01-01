@@ -1,0 +1,13 @@
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+
+import HomeScreen from '../Products/screens/HomeScreen';
+import ProductScreen from '../Products/screens/ProductScreen';
+import CartsScreen from '../Orders/screens/CartsScreen';
+
+const stackNavigator = createStackNavigator({
+  Home: HomeScreen,
+  Product: ProductScreen,
+  Carts: CartsScreen
+})
+
+export default createAppContainer(stackNavigator);
