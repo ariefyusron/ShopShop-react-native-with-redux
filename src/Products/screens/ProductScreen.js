@@ -6,17 +6,12 @@ import { connect } from 'react-redux';
 class ProductScreen extends Component {
 
   beforeToCart() {
-    this.props.navigation.navigate('BeforeToCart',{
-      name: this.state.name,
-      id: this.state.id,
-      price: this.state.price,
-      image_url: this.state.image_url
-    })
+    this.props.navigation.navigate('ConfirmQty')
   }
 
-  static navigationOptions = {
-    title: 'product'
-  };
+  static navigationOptions = ({navigation}) => ({
+    title: navigation.getParam('title')
+  });
 
   render() {
     return (

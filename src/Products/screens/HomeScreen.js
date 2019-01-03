@@ -13,7 +13,9 @@ class HomeScreen extends Component {
 
   toProduct(item) {
     this.props.dispatch(show_product(item))
-    this.props.navigation.navigate('Product')
+    this.props.navigation.navigate('Product',{
+      title:item.name
+    })
   }
 
   static navigationOptions =({navigation}) => ({
