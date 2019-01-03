@@ -7,11 +7,6 @@ class ConsfirmQtyScreen extends Component {
   constructor(){
     super();
     this.state = {
-      name: '',
-      id: '',
-      image_url: 'jjj',
-      price: 0,
-      totalPrice: 0,
       qty: 1
     }
   }
