@@ -51,10 +51,10 @@ class CartsScreen extends Component {
                 <Card>
                   <CardItem>
                     <Col style={{flex:1.3}}>
-                      <Image source={{uri: item.product.image_url}} style={{height:100,width:100}} />
+                      <Image source={{uri: item.Product.image_url}} style={{height:100,width:100}} />
                     </Col>
                     <Col style={{flex:2}}>
-                      <Text>{item.product.name}</Text>
+                      <Text>{item.Product.name}</Text>
                     </Col>
                   </CardItem>
                   <CardItem>
