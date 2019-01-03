@@ -3,28 +3,16 @@ import { Image, TouchableOpacity } from 'react-native';
 import { Container, Content, Text, Card, CardItem, Footer, Row, Col, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 
+import { incQty, decQty } from '../action';
+
 class ConsfirmQtyScreen extends Component {
-  constructor(){
-    super();
-    this.state = {
-      qty: 1
-    }
-  }
 
   incQty(){
-    this.setState({
-      qty: this.state.qty+1,
-      totalPrice: this.state.price*(this.state.qty+1)
-    })
+    this.props.dispatch(incQty())
   }
 
   decQty(){
-    if(this.state.qty>1){
-      this.setState({
-        qty: this.state.qty-1,
-        totalPrice: this.state.price*(this.state.qty-1)
-      })
-    }
+    this.props.dispatch(decQty())
   }
 
   addToCarts(){
@@ -71,7 +59,7 @@ class ConsfirmQtyScreen extends Component {
                         </TouchableOpacity>
                       </Col>
                       <Col>
-                        <Text>{this.props.products.data.qty}</Text>
+                        <Text>{this.props.orders.qty}</Text>
                       </Col>
                       <Col>
                         <TouchableOpacity onPress={()=>this.incQty()}>
@@ -103,7 +91,8 @@ class ConsfirmQtyScreen extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  products: state.productReducer
+  products: state.productReducer,
+  orders: state.orderReducer
 })
 
 export default connect(mapStateToProps)(ConsfirmQtyScreen);
