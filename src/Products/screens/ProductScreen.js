@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 class ProductScreen extends Component {
 
-  beforeToCart() {
+  confirmQtyScreen() {
     this.props.navigation.navigate('ConfirmQty')
   }
 
@@ -46,7 +46,7 @@ class ProductScreen extends Component {
               </Row>
             </Col>
             <Col style={{justifyContent:'center'}}>
-              <Button danger style={{height:37,alignSelf:'center'}} onPress={()=>{this.beforeToCart()}} >  
+              <Button danger style={{height:37,alignSelf:'center'}} onPress={()=>{this.confirmQtyScreen()}} >  
                 <Text>Add To Cart</Text>
               </Button>
             </Col>

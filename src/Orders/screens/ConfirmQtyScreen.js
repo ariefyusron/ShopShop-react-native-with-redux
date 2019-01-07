@@ -16,15 +16,7 @@ class ConsfirmQtyScreen extends Component {
   }
 
   addToCarts(){
-    axios.post(this.url,{
-      product_id: this.state.id,
-      transaction_id: 1,
-      qty: this.state.qty,
-      price: this.state.totalPrice
-    }).then(
-      this.props.navigation.goBack(),
-      alert('Success. '+this.state.name+' add to Carts')
-    )
+    alert('add to carts')
   }
 
   static navigationOptions = ({navigation}) => {
@@ -76,7 +68,7 @@ class ConsfirmQtyScreen extends Component {
           <Row>
             <Col style={{justifyContent:'center'}}>
               <Text style={{alignSelf:'center'}}>Total</Text>
-              <Text style={{alignSelf:'center',color:'#c82829'}}>Rp.{this.state.totalPrice}</Text>
+              <Text style={{alignSelf:'center',color:'#c82829'}}>Rp.{this.props.products.data.price*this.props.orders.qty}</Text>
             </Col>
             <Col style={{justifyContent:'center'}}>
               <Button danger style={{height:37,alignSelf:'center'}} onPress={()=>this.addToCarts()} >  

@@ -19,8 +19,6 @@ const orderReducer = (state = initialState, action) => {
     case 'DEC_QTY':
       if(state.qty>1){
         return {...state, qty:state.qty-action.payload}
-      } else{
-        return {...state, qty:state.qty}
       }
     default:
       return state;
