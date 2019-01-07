@@ -1,6 +1,5 @@
 const initialState = {
   results: [],
-  data: {},
   isLoading: false,
   isError: false,
   qty: 1
