@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Content, Form, Input, Button, Text, Row, Col, Spinner } from 'native-base';
+import { Container, Content, Form, Input, Button, Text, Row, Col } from 'native-base';
+import Spinner from 'react-native-loading-spinner-overlay';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 
@@ -43,9 +44,9 @@ class LoginSCreen extends Component {
               </Button>
             </Row>
           </Form>
-          {this.props.auth.isLoading? (
-              <Spinner />
-            ):(null)}
+          <Spinner
+            visible={this.props.auth.isLoading}
+          />
           {this.props.auth.isSuccess? (
             alert('Login success'),
             this.props.navigation.goBack()
