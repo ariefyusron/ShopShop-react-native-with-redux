@@ -8,7 +8,7 @@ import { all_orders } from '../action';
 class CartsScreen extends Component {
 
   componentDidMount() {
-    this.props.dispatch(all_orders())
+    this.props.dispatch(all_orders(this.props.auth.token))
   }
 
   static navigationOptions = {
@@ -16,6 +16,10 @@ class CartsScreen extends Component {
   };
 
   render() {
+    if(!this.props.auth.token){
+      this.props.navigation.goBack()
+      this.props.navigation.navigate('Login')
+    }
 
     if(this.props.orders.isLoading){
       return (
@@ -91,7 +95,8 @@ class CartsScreen extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  orders: state.orderReducer
+  orders: state.orderReducer,
+  auth: state.authReducer
 })
 
 export default connect(mapStateToProps)(CartsScreen);
