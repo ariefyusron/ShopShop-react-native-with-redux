@@ -6,11 +6,7 @@ import { connect } from 'react-redux';
 class ProductScreen extends Component {
 
   confirmQtyScreen() {
-    if(this.props.auth.token){
-      this.props.navigation.navigate('ConfirmQty')
-    } else{
-      this.props.navigation.navigate('Login')
-    }
+    this.props.navigation.navigate('ConfirmQty')
   }
 
   static navigationOptions = ({navigation}) => ({
@@ -62,8 +58,7 @@ class ProductScreen extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  products: state.productReducer,
-  auth: state.authReducer
+  products: state.productReducer
 })
 
 export default connect(mapStateToProps)(ProductScreen);

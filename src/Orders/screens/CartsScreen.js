@@ -4,6 +4,7 @@ import { Container, Content, Text, Card, CardItem, Row, Col, Icon, Button, Foote
 import { connect } from 'react-redux';
 
 import { all_orders } from '../action';
+import Login from '../../Auth/screens/LoginScreen';
 
 class CartsScreen extends Component {
 
@@ -17,8 +18,9 @@ class CartsScreen extends Component {
 
   render() {
     if(!this.props.auth.token){
-      this.props.navigation.goBack()
-      this.props.navigation.navigate('Login')
+      return(
+        <Login />
+      )
     }
 
     if(this.props.orders.isLoading){

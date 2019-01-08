@@ -4,6 +4,7 @@ import { Container, Content, Text, Card, CardItem, Footer, Row, Col, Button, Ico
 import { connect } from 'react-redux';
 
 import { incQty, decQty } from '../action';
+import Login from '../../Auth/screens/LoginScreen';
 
 class ConsfirmQtyScreen extends Component {
 
@@ -26,6 +27,13 @@ class ConsfirmQtyScreen extends Component {
   };
   
   render() {
+
+    if(!this.props.auth.token){
+      return(
+        <Login />
+      )
+    }
+
     return (
       <Container>
         <Content>
@@ -84,7 +92,8 @@ class ConsfirmQtyScreen extends Component {
 
 const mapStateToProps = (state) => ({
   products: state.productReducer,
-  orders: state.orderReducer
+  orders: state.orderReducer,
+  auth: state.authReducer
 })
 
 export default connect(mapStateToProps)(ConsfirmQtyScreen);
